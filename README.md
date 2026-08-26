@@ -59,6 +59,7 @@ expression beats in one shot and it needs splitting.
 | **`ref_audio_0` drives the mouth, not the voice** | A real-voice reference moves the pitch toward it but lands two semitones high, with a narrower range, a drifting accent and a synthetic edge. |
 | **Dialogue steals time from neighbouring shots** | Great for the performance beat, bad for whatever shot loses the frames. Keep background continuity out of clips that carry dialogue. |
 | **Dubbing over H3? Budget by shot, not by beat** | H3 spreads mouth movement across the whole shot and ignores the next timestamp. What breaks a dub is putting post-speech beats (swallowing, "finishes speaking") inside the speaking shot. |
+| **Don't let a preposition touch a brand asset** | `coffee glistening around its base` put coffee up the figurine's whole face. Give the liquid a stated distance instead, and say the surface is dry. |
 | **Never shoot the collision, or the volume of a liquid** | A hand knocking a cup over never made contact; the coffee outgrew the cup and kept pouring. Sweep an arm across frame, cut, and open on the aftermath. |
 | **Tail collapse** | H3 degrades 1.2–1.7 s before the end. Budget the margin, check every clip. |
 

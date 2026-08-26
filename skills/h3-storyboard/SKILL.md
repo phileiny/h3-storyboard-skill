@@ -267,6 +267,33 @@ Shot 2  切 —— 事情已經發生了，杯子倒著，水漬已經漫開並�
 
 ---
 
+## 四之一、⛔ 品牌角色不可以髒、破、變形
+
+拍一個「陶瓷公仔被打翻的咖啡淹到」的鏡頭，提示詞寫了
+`coffee glistening around its base`、`the amber light glowing through the wet film`。
+H3 照做了，而且**往上蔓延到整張臉**——變成公仔在流泥淚。
+
+如果那個角色是產品／品牌資產，這種畫面不能用，沒有例外。
+
+**問題不在模型，在提示詞。** 只要句子把液體和角色的表面連在一起
+（`on`、`around`、`through`、`soaks into`、`film`），它就會畫上去，而且會超量。
+
+### 改法：保留張力，切斷接觸
+
+```
+❌ coffee glistening around its base, the light glowing through the wet film
+✅ a dark pool lies on the wood behind it, a hand's width back from its base,
+   holding the amber light as a long reflection across its surface
+   （再加一句正面敘述：its cream-white surface is dry and matte all over）
+```
+
+液體還在畫面裡、逼近的張力還在、角色乾淨，而且倒影比濕膜好看。
+
+**通則：不要用介系詞把「會弄髒的東西」和「不能髒的表面」綁在同一個名詞片語裡。**
+給它們一個明確的空間距離。
+
+---
+
 ## 五、提示詞裡不要出現不該入鏡的物件名稱
 
 **H3 提到什麼就容易長出什麼（幻影物件）。**
