@@ -15,18 +15,29 @@ not from reading docs.
 
 ## The finding that started it
 
-**H3's facial performance is bound to dialogue. A shot with no `<d>` tag ignores every
-facial instruction you write.**
+**H3 drops facial instructions silently.** You write "her upper eyelids lift fully open,
+her eyebrows rise as one line" and nothing happens — no error, no warning, just a neutral
+face for seven seconds.
 
-Same shock close-up, same nine facial beats (eyes widen, brows rise, lip drawn in,
-head lifts). The only difference is whether a `<d>` line exists in the shot:
+Same shock close-up, same nine facial beats, two versions:
 
-| | no dialogue | with `<d>` |
+| | version A | version B |
 |---|---|---|
 | PSNR between frames 0.2 s apart, at the emotional peak | **42 dB** | **18 dB** |
-| what actually happened | nothing — she stayed downcast and neutral for 7 seconds | eyes widen, head pulls back, eyes flick and return |
+| what actually happened | nothing — downcast and neutral throughout | eyes widen, head pulls back, eyes flick and return |
 
-42 dB is effectively a frozen frame. Every beat was silently dropped.
+42 dB is effectively a frozen frame. Every beat was dropped.
+
+**⚠️ Two variables changed between A and B, and they are not yet isolated:**
+
+| | shot structure | dialogue |
+|---|---|---|
+| A (failed) | one 7 s close-up holding 9 beats | none |
+| B (worked) | split into three 2–3 s shots, one beat each | `<d>` line added |
+
+So the honest claim is: **splitting the shots *and* adding a `<d>` line, together, works.**
+The control that would separate them — short shots with no dialogue — has not been run yet.
+In practice you want both anyway; each has an independent rationale.
 
 The fix is one line, and the audio gets thrown away anyway:
 
