@@ -52,7 +52,7 @@ expression beats in one shot and it needs splitting.
 | | |
 |---|---|
 | **Never write "nothing changes"** | Likely leaks across the whole shot. Put the pause in the edit instead — controllable either way. |
-| **Size: crop relationships, not fractions** | `two thirds as tall as the frame` renders at 45–52%. Describing the crop hit 69% first try. |
+| **Size and distance: relationships, not numbers** | `two thirds as tall as the frame` renders at 45–52%; `a hand's width short of the base` renders as touching it. Describe the crop, or use something in frame as the ruler. |
 | **Shape: use a reference image** | Three text attempts at a 1.75:1 panel all produced a square. A blank reference image fixed it in one. |
 | **Silent characters use the body** | No dialogue means no mount point. Swap jaw clench → exhale with shoulders dropping. |
 | **Verify with PSNR, not eyes** | A dB table for reading whether a beat happened. |

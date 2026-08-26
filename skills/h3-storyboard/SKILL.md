@@ -240,6 +240,32 @@ Shot 2  切 —— 事情已經發生了，杯子倒著，水漬已經漫開並�
 
 露得少，主體自然就大。
 
+### 距離也一樣，不要寫單位
+
+分數會被忽略，**帶單位的距離同樣會被忽略**。實拍：寫
+`its leading edge a hand's width short of the base`，
+生出來液體直接淹到底座旁邊。
+
+改成**拿畫面裡的東西當尺**：
+
+```
+❌ a hand's width short of its base
+❌ stops about five centimetres away
+✅ between the near edge of the pool and its base there is a band of bare dry wood
+   as wide as the figurine is tall
+```
+
+同一個道理：模型算不動抽象的量，但看得懂「A 和 B 之間空著一個 C 那麼寬」。
+
+### 俯視角會拆掉角色
+
+從正上方拍，角色的臉、耳朵、輪廓全部消失，只剩一團色塊；
+而且**沒有縱深參照，物件之間的大小關係會亂**——實拍時一個馬克杯被畫得比
+一個 16 公分的公仔還大。
+
+要拍桌面上的東西，**把鏡頭放在桌面高度往前看，不要往下看**。
+臉留得住，液體的範圍被前縮壓扁（不會看起來像一片湖），比例也有參照。
+
 ### 尺寸三招要三招都寫
 
 1. **跟已知物體比**——about the same size as a woman's hand from wrist to fingertips
