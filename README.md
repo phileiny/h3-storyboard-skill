@@ -6,8 +6,9 @@ Every other H3 skill stops at translation: you decide what you want, they format
 H3's prompt schema. None of them cover the part before that — how to break a script into
 shots, how many beats a shot can hold, or how to direct a face.
 
-This one does, and every rule in it comes from a controlled comparison on real output,
-not from reading docs.
+This one does. Every rule comes from real output rather than from reading docs, and
+[`SOURCES.md`](skills/h3-storyboard/SOURCES.md) says which ones have a controlled
+comparison behind them and which are still inference.
 
 繁體中文說明在 [`skills/h3-storyboard/SKILL.md`](skills/h3-storyboard/SKILL.md)。
 
@@ -81,7 +82,7 @@ division of labour.
 ## Install
 
 ```bash
-npx skills add https://github.com/USER/h3-storyboard-skill --skill h3-storyboard
+npx skills add https://github.com/phileiny/h3-storyboard-skill --skill h3-storyboard
 ```
 
 Or copy `skills/h3-storyboard/` into your `.claude/skills/`.
@@ -94,10 +95,12 @@ what to put in the prompt. They do not overlap.
 
 ## Honesty about scope
 
-[`SOURCES.md`](skills/h3-storyboard/SOURCES.md) separates **verified** from **inferred**.
-Six rules have controlled comparisons behind them. Three are reasoned but untested —
-including where exactly the beat-density ceiling sits (9 beats fails, 1 works, the middle
-is unmeasured).
+[`SOURCES.md`](skills/h3-storyboard/SOURCES.md) sorts every rule into **verified**,
+**partly verified** (the effect is real, the cause is not isolated) and **inferred**.
+
+Five have controlled comparisons. One — the big one above — has a confirmed effect with
+an unisolated cause. Three are reasoned but untested, including where the beat-density
+ceiling actually sits: 9 beats fails, 1 works, the middle is unmeasured.
 
 All of it comes from producing a serialised short-form drama: 9:16, Ref2VA, local ComfyUI,
 roughly 60 s and 1,100–1,400 frames per episode.
