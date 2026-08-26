@@ -298,7 +298,41 @@ for y in range(0, 800, 10):
 
 ---
 
-## 九、後製的分工
+## 九、音訊參考（`ref_audio_0`）能做什麼
+
+H3 可以吃一段音訊當參考，標籤是 `<Audio 1>`，保留標記寫 `reference`：
+
+```
+<Audio 1> is the voice-timbre reference for <Subject 1> (S1).
+<Audio 1>: reference - only the timbre, pitch and delivery are referenced;
+           none of its original wording is carried across.
+```
+
+⚠️ **音訊完全不進文字編碼器**，只有 `<Audio 1>:` 這個標籤進去，波形直接送 DiT。
+所以**在提示詞裡描述那段音訊沒有用**，它只是個指標。情緒還是要寫在 `delivery` 欄位。
+
+### 實測：能驅動表演，但不能當聲音來源
+
+拿一段 6 秒的真人音色參考去生一句新台詞：
+
+```
+有生出人聲 ✅   嘴型、呼吸、頭部節奏都對
+音高偏高 ❌     參考 192.8 Hz → 生成 242.4 Hz（高約四個半音）
+音域變窄 ❌     參考跨 175 Hz → 生成只有 105 Hz
+音色不像 ❌     是「同性別同年齡層的另一個人」
+口音漂移 ❌     台灣腔的參考音，生出帶大陸腔的結果
+```
+
+**所以定位是「表演的鷹架」**：讓嘴型和呼吸節奏更準，**最終音軌照舊另外配**。
+
+⚠️ **口音漂移是生成語音的通病**，不限於 H3——同一個專案在 ElevenLabs Voice Design
+和阿里雲 DashScope 的 `instructions` 參數上都遇過。
+**模型只要有自由發揮的空間，口音就會漂回訓練資料的多數腔調。**
+要特定口音就用真人錄音，或用真人錄音做音色克隆。
+
+---
+
+## 十、後製的分工
 
 有些東西**永遠不要交給 H3**：
 
@@ -326,7 +360,7 @@ ffmpeg -i base.mp4 -loop 1 -framerate 24 -t <長度> -i card.jpg -filter_complex
 
 ---
 
-## 十、跨集重複使用
+## 十一、跨集重複使用
 
 有固定儀式或轉場的系列作，**把它拍成通用資產**：
 
