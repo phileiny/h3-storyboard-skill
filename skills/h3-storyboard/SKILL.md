@@ -240,6 +240,28 @@ Shot 2  切 —— 事情已經發生了，杯子倒著，水漬已經漫開並�
 
 露得少，主體自然就大。
 
+### 直幅裡的尺寸有幾何上限
+
+一個**寬≈高**的角色，在 9:16 直幅裡**整隻入鏡**時：
+
+```
+寬度填滿畫面 → 高度 = 768 ÷ (寬高比) ≈ 畫面高的 50–60%
+```
+
+實測三次：52%、61%、61%。**這不是提示詞寫不好，是畫面比例的上限。**
+
+要更大就**必須裁掉一部分**。裁掉的通常是底部（底座、下半身），
+因為上半部比較窄，能在畫面裡站得更高：
+
+```
+✅ only its upper part is in the picture: its cheeks reach out past both the left
+   and the right edge of the frame, the tips of its ears sit just under the top edge,
+   and the bottom edge of the frame cuts straight across its glowing belly so that
+   its base is entirely out of shot below
+```
+
+同一招在另一集做到 69–70%。**「整隻都要在畫面裡」和「要很大」在直幅裡是互斥的。**
+
 ### 距離也一樣，不要寫單位
 
 分數會被忽略，**帶單位的距離同樣會被忽略**。實拍：寫
