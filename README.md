@@ -32,8 +32,13 @@ instructions. One variable changed at a time:
 Lower PSNR means more change between frames. 42 dB is effectively a frozen frame.
 
 **A → B is the mechanism.** Splitting the shots recovers almost all of it.
-**B → C is a bonus.** The dialogue tag helps, but it is not what was blocking the
-performance.
+**B → C is real but it has a price.** A fourth run isolated it properly — same
+`ref_image_size`, same seed, one `<d>` line the only difference. The dialogue tag does not
+make faces move; it makes H3 *reallocate screen time* toward the shot that carries the
+line. In a four-shot clip the emotional shot went from 55 frames to 84 (the prompt asked
+for 74) — and the shot after it was squeezed from 56 to 42, at which point the background
+character standing outside the glass door vanished and the door itself degraded into a
+plain window.
 
 So: **count your beats before you write anything else.** More than two or three
 expression beats in one shot and it needs splitting.
@@ -52,6 +57,7 @@ expression beats in one shot and it needs splitting.
 | **Silent characters use the body** | No dialogue means no mount point. Swap jaw clench → exhale with shoulders dropping. |
 | **Verify with PSNR, not eyes** | A dB table for reading whether a beat happened. |
 | **`ref_audio_0` drives the mouth, not the voice** | A real-voice reference moves the pitch toward it but lands two semitones high, with a narrower range, a drifting accent and a synthetic edge. |
+| **Dialogue steals time from neighbouring shots** | Great for the performance beat, bad for whatever shot loses the frames. Keep background continuity out of clips that carry dialogue. |
 | **Tail collapse** | H3 degrades 1.2–1.7 s before the end. Budget the margin, check every clip. |
 
 Plus the physiological ordering of expressions (brow → eye → mouth), an
