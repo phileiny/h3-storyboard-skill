@@ -51,6 +51,7 @@ expression beats in one shot and it needs splitting.
 | **Shape: use a reference image** | Three text attempts at a 1.75:1 panel all produced a square. A blank reference image fixed it in one. |
 | **Silent characters use the body** | No dialogue means no mount point. Swap jaw clench → exhale with shoulders dropping. |
 | **Verify with PSNR, not eyes** | A dB table for reading whether a beat happened. |
+| **`ref_audio_0` drives the mouth, not the voice** | A real-voice reference moves the pitch toward it but lands two semitones high, with a narrower range, a drifting accent and a synthetic edge. |
 | **Tail collapse** | H3 degrades 1.2–1.7 s before the end. Budget the margin, check every clip. |
 
 Plus the physiological ordering of expressions (brow → eye → mouth), an
