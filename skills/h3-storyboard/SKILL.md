@@ -342,6 +342,51 @@ H3 照做了，而且**往上蔓延到整張臉**——變成公仔在流泥淚�
 
 ---
 
+## 六之一、⛔ 情緒轉換：不要讓它在鏡頭前連續發生
+
+寫「眉心鬆開」「笑容褪去」這種**從 A 狀態變到 B 狀態**的句子，
+等於給了模型一個起點和一個終點，它就在中間做交叉淡化——
+**臉會像橡皮一樣連續變形**。這是「表情不自然」最常見的來源。
+
+### ① 把變化藏在遮蔽裡
+
+閉眼、低頭、手擋住、切鏡頭都算。變化發生在看不見的那段時間，
+再次看見時已經是新狀態，模型沒有機會內插。
+
+```
+❌ At 00:03.000 the crease between her eyebrows smooths out and releases.
+
+✅ At 00:02.900 her eyes close and stay closed, and her head tips forward
+   about five degrees.
+   At 00:03.500, with her eyes still closed, her eyebrows come apart and the
+   skin between them goes flat.
+   [切鏡頭]
+   At 00:04.300 her eyes open, and they open onto a face that is already loose.
+```
+
+這也是真的演員在做的事。
+
+### ② 先反向一拍
+
+要放鬆之前先更緊，要落淚之前先忍住。**沒有抵抗的轉折看起來像開關被按了一下。**
+
+```
+✅ At 00:02.300 her chin pulls in toward her throat and her lower lip presses up
+   hard against the upper one, so that the whole lower half of her face tightens
+   further than it already was.
+```
+
+反向那一拍還有個好處：它是一個**動作**，不是一個狀態變化，模型做得比較穩。
+
+### ③ 觸發點要跟轉折在同一鏡或緊鄰的鏡頭
+
+角色要因為看到／聽到什麼才轉。如果觸發在 Shot 1、轉折在 Shot 2 開頭就完成了，
+中間沒有一拍是她「接收」，觀眾會覺得情緒是憑空冒出來的。
+
+留一拍給消化——通常就是①的那個閉眼或低頭。
+
+---
+
 ## 七、拆鏡流程
 
 ```
