@@ -59,6 +59,7 @@ expression beats in one shot and it needs splitting.
 | **`ref_audio_0` drives the mouth, not the voice** | A real-voice reference moves the pitch toward it but lands two semitones high, with a narrower range, a drifting accent and a synthetic edge. |
 | **Dialogue steals time from neighbouring shots** | Great for the performance beat, bad for whatever shot loses the frames. Keep background continuity out of clips that carry dialogue. |
 | **Dubbing over H3? Budget by shot, not by beat** | H3 spreads mouth movement across the whole shot and ignores the next timestamp. What breaks a dub is putting post-speech beats (swallowing, "finishes speaking") inside the speaking shot. |
+| **A design change hides there too** | Not just expression — an eye design pinned by a different reference image swapped inside one shot, no cut, because the lids were shut across the change. |
 | **Hide an emotional turn behind something** | Written as A→B, H3 crossfades between the two states and the face reads like rubber. Close the eyes, change underneath, open onto the new state — verified frame by frame. |
 | **In a vertical frame, whole-subject and large are mutually exclusive** | A roughly square subject fully in a 9:16 frame tops out around 50–60% of the height. Crop the base off and it reaches 70%. |
 | **Don't let a preposition touch a brand asset** | `coffee glistening around its base` put coffee up the figurine's whole face. Give the liquid a stated distance instead, and say the surface is dry. |
