@@ -55,6 +55,7 @@ expression beats in one shot and it needs splitting.
 | **Size and distance: relationships, not numbers** | `two thirds as tall as the frame` renders at 45–52%; `a hand's width short of the base` renders as touching it. Describe the crop, or use something in frame as the ruler. |
 | **Shape: use a reference image** | Three text attempts at a 1.75:1 panel all produced a square. A blank reference image fixed it in one. |
 | **Silent characters use the body** | No dialogue means no mount point. Swap jaw clench → exhale with shoulders dropping. |
+| **The last mile is an edit, not a prompt** | H3 treats each timestamp as a state to arrive at, so it never anticipates and never snaps. Cover the dead frames with an insert; butt the two ends of an emotional turn together. |
 | **Verify with PSNR, not eyes** | A dB table for reading whether a beat happened. |
 | **`ref_audio_0` drives the mouth, not the voice** | A real-voice reference moves the pitch toward it but lands two semitones high, with a narrower range, a drifting accent and a synthetic edge. |
 | **Dialogue steals time from neighbouring shots** | Great for the performance beat, bad for whatever shot loses the frames. Keep background continuity out of clips that carry dialogue. |
