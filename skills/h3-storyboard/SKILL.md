@@ -1079,6 +1079,50 @@ B 的結果：
 ⭐ 開口那一句也要寫成可數的：「這句只講一次、等速講完、講完嘴就閉上不再動；
 　 開口前嘴不要先開合，講完不要重複、不要結巴、不要從頭再講。」
 
+### ④之二 🔴 台詞會【重講、假起頭】—— 三個成因，全在提示詞裡（2026-09-22）
+
+一整場（S2，七顆有對白）用 whisper large-v3-turbo 逐字聽寫，老闆的台詞有三種壞法：
+**先講一段含糊的再講正確的**（假起頭）、**同一句講兩次**、**講完又多一句不存在的話**。
+這條規則（上一段）寫在 skill 裡，但那一場【沒有一顆套用】。
+
+```
+同一顆（H201b）、同一顆 seed 的三版：
+舊版   And there's the next generally your chip and there's no next generation plan for your chip. The company…
+A 版   There's no next generation plan for your chip. The new generation for your chip, the company…
+       ← 只拿掉「接續」的暗示：假起頭沒了，但重講【搬到句子中間】
+B 版   There's no next generation for your chip. The company has to let some people go.
+       ← 再加兩項：乾淨，各講一次
+```
+
+**成因一：提示詞在暗示「他已經講到一半了」。**
+summary 寫 `continuing`、`says the rest of it`，台詞又以 `And` 開頭 → 模型先替它補一段「前文」。
+✅ 拿掉接續字眼；summary 改寫成「他說兩句話：……」。
+⚠️ 劇本原文就是 And 開頭（接在上一顆的台詞後面）也一樣 —— 生成版拿掉，剪接時聽起來照樣順。
+
+**成因二：語速在兩個地方寫法相反。**
+共用段寫 `BRISK WORKING PACE … NOBODY SPEAKS SLOWLY`，
+各顆的 `speaker_identities` 卻寫 `an even unhurried pace`。兩句都會被執行（§五之二）。
+✅ 全部統一成同一種說法（`a brisk even pace`）。grep `unhurried|slow|measured|deliberate`。
+
+**成因三：沒寫「只講一次」。** 上一段那句，寫成英文放在 `</d>` 後面：
+
+```
+⭐ HE SAYS THESE TWO SENTENCES ONCE, AT ONE EVEN SPEED, FROM THE FIRST WORD TO THE LAST:
+his lips stay together until the first word, and the first word is the first sound he makes;
+he does not start, stop and start again, he does not repeat a word or a sentence,
+he does not stumble, and when the last word ends he does not say it again.
+```
+
+⚠️ B 版把成因二、三【一起】加，沒有分開測 —— 知道兩者合起來有效，不知道各自佔多少。
+
+📎 **社群的說法：台詞比片長短很多時，模型會拿填充與重複去補剩下的時間**（Seedance 部落格；
+HF MiniMax-H3 討論串 #76 記的是開頭 0.5 秒的含糊語音）。我們的資料大致吻合（8.7 秒的片、
+2.7 秒的台詞 → 整句講兩次），**但有一個反例**：講完後還有 2.5 秒、卻把那段寫成
+「他在等，什麼都不再說，沉默就是這一顆剩下的全部」的那顆 —— 沒有重講。
+⭐ 所以講完之後的時間要**寫成一件事**（在等、翻頁、整理紙），不要只寫「台詞不要延伸」。
+
+⚠️ 還沒解的：四顆測試的開口都比規格晚 1.4–1.9 秒，而且很穩定。原因未查。
+
 ### ⑤ 一張臉要被讀懂只需要 1.5–2 秒
 
 同一顆鏡頭的兩版：A 版給某張臉 1.8 秒，B 版給滿 3.2 秒（為了配合旁白長度）。
@@ -1277,6 +1321,59 @@ B 的結果：
   引子把那份事實放進同一次生成裡，之後的任何角度都從那份事實推出去。
 ⭐ 所以引子的內容不是隨便一個廣角 —— 要【盡量就是那張場景圖本身的畫面】。
 ```
+
+⚠️ **引子只解決「這一顆」的房間，解決不了「連續幾顆之間」的一致。**
+每顆各自從側拍的板子推出 POV，推出來的都不一樣（2026-09-22 並排比對同一場五顆正打）：
+一顆多長出兩台電話和一疊資料夾、人退遠一倍；一顆太近、多一副鍵盤、看不到白板；一顆人偏左。
+→ 同一個視角要連拍好幾顆時，改用 ④之五。
+
+### ④之五 ⭐⭐ 連續同視角的鏡頭：拿【已經拍好的那一格】當構圖錨點，不要每顆重推（2026-09-22）
+
+```
+狀況：S2 有五顆都是「Richard 坐在訪客椅上看老闆」的 POV 正打，每顆都用 ④之二 的
+      引子＋切。五顆的房間、距離、桌上物件各不相同，剪在一起就穿幫。
+做法：從【已經收的那一顆】截一格乾淨的 POV 畫面當母版 → 取代原本的場景圖，
+      同時拿掉引子與切點，整顆就是一個 POV 單鏡。
+      參考圖：BO-21F（臉）＋ BO-21（臉）＋ 母版格　　← 三張，跟原本一樣多
+結果（兩顆，同 seed，各一次）：
+  ✅ 機位、景別、窗、書櫃、白板、相框、光與母版一模一樣
+  ✅ 原本會自己長出來的鍵盤、電話都沒出現；畫面裡恰好一個人
+  ✅ 沒有剪點（場景偵測零）—— 連帶拿掉了「台詞貼著剪點」這個口吃來源（§六之二④）
+  ✅ 每顆省下引子＋漂移餘裕：226 → 192 幀、175 → 141 幀
+```
+
+**寫法的三個要點：**
+
+```
+① 母版標成【構圖錨點】，不是首幀
+   <Picture 3> is the composition anchor of [Shot 1]: a still of this exact camera set-up …
+   ⭐ The camera position, the shot size, the room, the furniture and the light are exactly as in <Picture 3>.
+   ⚠️ <Picture 3> sets WHERE THE CAMERA IS AND WHAT THE ROOM LOOKS LIKE — not his pose,
+      his gaze or his expression, which are written in the shot below.
+② 母版裡有那個人，又接了他兩張臉 → 要明寫三張是同一個人
+   「<Picture 1>, <Picture 2> AND THE MAN IN <Picture 3> ARE ONE AND THE SAME MAN」
+   ＋「恰好一個人，坐在 <Picture 3> 裡那個人坐的地方」
+③ 共用段裡描述房間物件的句子【刪掉】，改成「exactly as in <Picture 3>」
+   原本那段寫了 CRT、鍵盤、電話 —— 那正是各顆多長出來的東西（§五：提到什麼就長什麼）
+```
+
+**挑母版的規則：**
+
+```
+✅ 嘴閉著、沒有動態模糊、手是靜止的
+✅ 從【最具代表性的那一顆】截，而且之後固定不換 —— 所有同視角的鏡頭共用同一張
+🛑 不要串接（A 的末格當 B 的母版、B 的末格當 C 的母版）：生成圖每接一次就掉一次品質
+⚠️ 避開片尾 1.3 秒的崩解區；截在那裡要放大檢查
+⚠️⚠️ 母版的【視線與表情】會壓過文字 —— 圖壓過文字的又一例：
+   母版的眼睛直視鏡頭 → 規格寫「抬眼 0.8 秒後回到紙上」，成品抬了就沒回去
+   → 母版要挑【這場戲的預設狀態】（例如眼睛在紙上），不是某個節拍的瞬間
+```
+
+⚠️ 為什麼不用 I2VA：同一個專案拍腳那條線（2026-09-13）做過對照 ——
+同一張定格圖，I2VA 拿到像素但臉不是那個角色、還要換 fl2va 檢查點；
+Ref2VA 拿到構圖、臉由臉部參考圖接回來。**定格圖在手上時，Ref2VA ≥ I2VA。**
+
+⚠️ 信心度：兩顆、各一次、同一顆 seed、同一場戲。反打（另一個視角）還沒測。
 
 ### ④之三 ⭐⭐ 要鏡頭「轉 90 度」，寫【可觀察的後果】，不要寫角度（2026-09-20）
 
