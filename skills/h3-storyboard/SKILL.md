@@ -443,6 +443,16 @@ H3 執行的是「封面翻過去」，手只是一個同時存在的物件。
 ⚠️ 運鏡讓出來的空間也算空位：鏡頭推進時把另一個人推出畫面 →
 那塊空間要被重新填滿 → H3 填空間的方式是生人（見 §七之二②）。
 
+### ⭐ 服裝參考圖不要帶臉 —— 用「隱形人台」（2026-09-25，武俠測試＋外部佐證）
+
+服裝要佔一個參考槽時，那張圖裡的人臉就是【多出來的一張臉】。
+✅ 用生圖模型做「隱形人台」：衣服撐成有人穿著的立體形狀，領口與袖口是空的，裡面沒有人。
+　 提示詞寫明「<Picture N> shows the costume alone on an invisible mannequin; in this video it is worn by <Subject 1>」。
+　 武俠測試：臉、服裝（人台）、刀分開三張，21 次生成，畫面裡始終只有一個人、也沒有長出一件空衣服。
+📎 外部佐證：Higgsfield《HELL GRIND》的角色設定圖三格裡【正面那格不放頭】，
+　 理由相同 ——「模型一直從小小的全身圖裡拿臉」。
+⚠️ 我們沒有「服裝圖帶臉」的對照組（partly）。
+
 ---
 
 ## 四之一、⛔ 品牌角色不可以髒、破、變形
@@ -931,6 +941,37 @@ B 的結果：
 > **一句描述是不是無害，取決於當時的景別。景別變了，要回頭重讀每一句。**
 
 ---
+
+## 五之三、📖 禁用字對照表：模型會照字面執行、或會誤讀的寫法
+
+這一節只是索引 —— 每一條的證據在括號裡那一節。**寫提示詞時照著改，驗收時照著 grep。**
+📎 做法借自 Higgsfield《HELL GRIND》的 ban dictionary：製作中每發現一個被誤讀的字，就記一筆，不要靠記憶。
+
+| ❌ 寫法 | 模型怎麼做 | ✅ 改成 | 出處 |
+|---|---|---|---|
+| `nothing about her changes`、`completely still`、`his face is doing nothing` | 整顆凍結，該動的也不動 | 寫他在做的小事：呼吸、眨眼、重心微沉 | §二、§六之二③ |
+| `no push in, no zoom, no dissolve…`（為了確保硬切） | 剪點漂到很後面，反而運鏡 | 只寫一句 `static, on a tripod, with no camera movement whatsoever` | §二、§七之二③ |
+| `widening`、`spreading`（液體） | 沒有終點地一直擴大 | 寫界線：`as far as X and no further` | §二之一 |
+| `about two thirds as tall as the frame`（分數） | 被忽略 | 寫裁切關係：頭頂離上緣一個手掌、下緣切過… | §三 |
+| `a hand's width short of`、`five centimetres`（帶單位的距離） | 被忽略 | 拿畫面裡的東西當尺：「中間空著一個 X 那麼寬」 | §三 |
+| `glistening around`、`through the wet film`（液體＋角色表面） | 把角色弄髒 | 給空間距離，再補一句「表面是乾的」 | §四之一 |
+| `the proportions of a phone screen`、「像塔羅牌」（比喻） | 真的長出那個物件 | 用畫框的邊界界定，不提物件 | §五 |
+| `evenly spaced`（要車流不要干擾） | 排成規律的圖案 | 「成團、不同步」＋另寫一句「沒有急煞」 | §五 |
+| `its eyelids come down again`（參考圖有半闔眼） | 被拉去半闔 | 寫閉眼的形狀：「每隻眼睛是一條平滑的弧線」 | §六之一 |
+| `continuing`、`says the rest of it`、台詞以 `And` 開頭 | 假起頭：先補一段前文 | 拿掉接續字眼；summary 寫「他說兩句話：…」 | §六之二④之二 |
+| `unhurried`、`slow`、`measured`（與共用段的語速衝突） | 兩種語速都執行 | 全片統一一種說法 | §六之二④之二 |
+| 旁白裡的 `say`、`sentence`、`word`、`line`（有 `<d>` 的鏡頭） | 被唸出來 | 台詞以外不寫說話；要表達「沒說出口」就寫身體 | §六之二④之二 |
+| `lips parted as if about to speak` | 真的開口講 2 秒 | 雙唇抿緊、吞嚥一次 | §六之二④之二 |
+| `knees bent, weight sunk low, like a drawn bow`（要微蹲） | 深馬步，像坐在看不見的椅子上 | 寫對照關係：「臀部在膝蓋上方」（武俠測試，n=1） | §六之二① |
+| `she holds the camera` | 相機被畫成道具 | 運鏡用官方運鏡詞，手臂另起一句 | minimax-h3 skill |
+| 📎 `motion blur`、`particle trails`（要速度感） | 外部建議：避免特效術語 | 寫因果：袖子被甩直、沙被刀風掃平 | ayase0307/h3-video-prompting（未自測） |
+
+**生參考圖（Gemini／Qwen，不是 H3）也有同一種問題：**
+```
+「圓形護手＋纏繩握柄」             → 被畫成日本脇差（要中國刀：環首＋盤形護手＋麻繩螺旋纏柄）
+「deep-set eyes, strong straight nose」且沒寫族裔 → 西方臉孔
+「沙暴」寫在文字、但參考的場景圖是薄沙霧        → 圖贏（§四之二之二）
+```
 
 ## 六、情緒的生理順序
 
